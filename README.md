@@ -1,32 +1,40 @@
 Real-Time Sign Language Detection
 
-This project implements a real-time sign language detection system using a Convolutional Neural Network (CNN) and MediaPipe for hand landmark detection. The system captures live video input, processes hand gestures, and classifies them into corresponding sign language alphabets.
+This project implements a real-time detection system for sign language alphabets and numbers using a Convolutional 
+Neural Network (CNN) and MediaPipe for hand landmark detection. The system captures live video input, processes hand 
+gestures, and classifies them into corresponding sign language alphabets or numbers.
 
-Project Structure:
+---
 
-- `CNNModel.py`: Defines the Convolutional Neural Network (CNN) architecture used for classifying hand gestures.
-- `handLandMarks.py`: Handles the detection of hand landmarks using MediaPipe and processes them for use by the CNN model.
-- `mediapipeHandDetection.py`: Integrates MediaPipe to perform real-time hand detection through the webcam.
-- `realTime.py`: The main script that ties everything together, using the CNN model and MediaPipe for real-time sign language detection.
-- `training.py`: Script used for training the CNN model on a dataset of hand gestures.
-- `testCNN.py`: Script for testing the performance of the trained CNN model on a test dataset.
-- `CNN_model_alphabet_SIBI.pth`: Pre-trained CNN model weights used for classification.
+Project Structure
 
-How to Run the Project:
+- CNNModel.py: Defines the Convolutional Neural Network (CNN) architecture used for classifying hand gestures.
+- training.py: Script used for training the CNN model on datasets of hand gestures or numbers.
+- testCNN.py: Script for testing the performance of the trained CNN model on a test dataset.
+- mediapipeHandDetection.py: Integrates MediaPipe to perform real-time hand detection and display landmarks through the webcam.
+- realTime.py: Main script that integrates the CNN model and MediaPipe for real-time hand gesture detection and classification.
+- handLandMarks.py: Processes MediaPipe's hand landmarks for generating datasets suitable for training the CNN model.
+- numbers_testing_data.xlsx: Example processed dataset for testing numeric gesture detection.
+- CNN_model_alphabet_SIBI.pth: Pre-trained CNN model weights for sign language alphabets classification.
+- CNN_model_number_SIBI.pth: Pre-trained CNN model weights for numeric gesture classification.
+
+---
+
+How to Run the Project
 
 1. Install Dependencies
 
-Make sure you have Python installed on your system. You can install the required Python packages using pip:
+Ensure Python is installed. Install the required Python packages using:
 
 pip install -r requirements.txt
 
-If you don't have a `requirements.txt` file, you can manually install the necessary packages:
+If you don't have a requirements.txt file, manually install the necessary packages:
 
 pip install opencv-python mediapipe torch numpy pandas
 
 2. Running Real-Time Detection
 
-To start the real-time sign language detection, run the following command:
+For real-time sign language or numeric gesture detection, run:
 
 python realTime.py
 
@@ -34,44 +42,59 @@ This will activate your webcam and start detecting and classifying hand gestures
 
 3. Training the Model (Optional)
 
-If you want to train the CNN model from scratch, you can run:
+To train the CNN model from scratch using a dataset of hand gestures, run:
 
 python training.py
 
-This script will use a dataset of hand gestures to train the model.
-
 4. Testing the Model (Optional)
 
-To test the performance of the trained CNN model on a test dataset, you can run:
+To evaluate the trained CNN model's performance on a test dataset, run:
 
 python testCNN.py
 
-How It Works:
+---
+
+How It Works
 
 1. Hand Landmark Detection: 
-   - The system uses MediaPipe to detect and track hand landmarks in real-time from the webcam feed.
+   - MediaPipe detects and tracks hand landmarks in real-time from the webcam feed.
 
 2. Feature Extraction:
-   - The detected hand landmarks are processed and used as input features for the CNN model.
+   - Hand landmarks are processed and normalized to be used as input features for the CNN model.
 
 3. Gesture Classification:
-   - The CNN model classifies the input features into one of the predefined sign language alphabets (A-Z).
+   - The CNN model classifies the input features into one of the predefined sign language alphabets (A-Z) or numeric gestures (1-9).
 
 4. Real-Time Feedback:
    - The classified gesture is displayed in real-time, providing immediate feedback to the user.
 
-Requirements:
+---
+
+Requirements
 
 - Python 3.x
 - OpenCV
 - MediaPipe
 - PyTorch
 - Pandas
+- NumPy
 
-Contributing:
+---
 
-Contributions are welcome! If you have any ideas, suggestions, or improvements, feel free to open an issue or submit a pull request.
+Notes
 
-Contact:
+- The system supports both alphabetic and numeric gestures based on the pre-trained model loaded 
+  (CNN_model_alphabet_SIBI.pth or CNN_model_number_SIBI.pth).
+- Ensure the training and test datasets are preprocessed and structured correctly as required by the CNN model.
 
-For any questions or suggestions, please feel free to contact me at [monzerkoukou@gmail.com].
+---
+
+Contributing
+
+Contributions are welcome! Feel free to open an issue or submit a pull request if you have suggestions or improvements.
+
+---
+
+Contact
+
+For any questions or suggestions, feel free to contact me at (monzerkoukou@gmail.com).
