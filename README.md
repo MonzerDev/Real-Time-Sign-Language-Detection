@@ -1,7 +1,7 @@
-Real-Time Sign Language Detection
+Real-Time Sign Language Recognition
 
-This project implements a real-time detection system for sign language alphabets and numbers using a Convolutional 
-Neural Network (CNN) and MediaPipe for hand landmark detection. The system captures live video input, processes hand 
+This project implements a real-time recognition system for sign language alphabets and numbers using a Convolutional 
+Neural Network (CNN) and MediaPipe for hand landmark recognition. The system captures live video input, processes hand 
 gestures, and classifies them into corresponding sign language alphabets or numbers.
 
 ---
@@ -12,9 +12,9 @@ Project Structure
 - training.py: Script used for training the CNN model on datasets of hand gestures or numbers.
 - testCNN.py: Script for testing the performance of the trained CNN model on a test dataset.
 - mediapipeHandDetection.py: Integrates MediaPipe to perform real-time hand detection and display landmarks through the webcam.
-- realTime.py: Main script that integrates the CNN model and MediaPipe for real-time hand gesture detection and classification.
+- realTime.py: Main script that integrates the CNN model and MediaPipe for real-time hand gesture recognition and classification.
 - handLandMarks.py: Processes MediaPipe's hand landmarks for generating datasets suitable for training the CNN model.
-- numbers_testing_data.xlsx: Example processed dataset for testing numeric gesture detection.
+- numbers_testing_data.xlsx: Example processed dataset for testing numeric gesture recognition.
 - CNN_model_alphabet_SIBI.pth: Pre-trained CNN model weights for sign language alphabets classification.
 - CNN_model_number_SIBI.pth: Pre-trained CNN model weights for numeric gesture classification.
 
@@ -32,9 +32,9 @@ If you don't have a requirements.txt file, manually install the necessary packag
 
 pip install opencv-python mediapipe torch numpy pandas
 
-2. Running Real-Time Detection
+2. Running Real-Time recognition
 
-For real-time sign language or numeric gesture detection, run:
+For real-time sign language or numeric gesture recognition, run:
 
 python realTime.py
 
